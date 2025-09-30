@@ -1,24 +1,30 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import { ThemeProvider } from './components/ThemeProvider'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Providers } from './providers';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Base Mini App',
-  description: 'Built with Zara',
-}
+  title: 'NodeHuntr - DePIN Node Discovery',
+  description: 'Find, track, and maximize your DePIN node earnings in real-time',
+  openGraph: {
+    title: 'NodeHuntr',
+    description: 'Find, track, and maximize your DePIN node earnings',
+    images: ['/og-image.png'],
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body>
-        <ThemeProvider defaultTheme="default">
-          {children}
-        </ThemeProvider>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
-  )
+  );
 }

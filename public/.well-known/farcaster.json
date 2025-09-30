@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "NodeHuntr",
+    "subtitle": "Built with Zara",
+    "description": "NodeHuntr is a Base Mini App built with Zara.",
+    "iconUrl": "https://0co.to/images/zara-2.png",
+    "homeUrl": "https://f65cc3b0c551454aaf0ef11f975d728a-ckvk.vercel.app",
+    "splashImageUrl": "https://f65cc3b0c551454aaf0ef11f975d728a-ckvk.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://f65cc3b0c551454aaf0ef11f975d728a-ckvk.vercel.app/image.png",
+    "tagline": "NodeHuntr",
+    "screenshotUrls": [
+      "https://f65cc3b0c551454aaf0ef11f975d728a-ckvk.vercel.app/screenshot.png",
+      "https://f65cc3b0c551454aaf0ef11f975d728a-ckvk.vercel.app/screenshot.png"
+    ],
+    "primaryCategory": "social",
+    "tags": [
+      "base",
+      "miniapp",
+      "onchainkit"
+    ],
+    "webhookUrl": "https://f65cc3b0c551454aaf0ef11f975d728a-ckvk.vercel.app/api/webhook"
+  }
+}

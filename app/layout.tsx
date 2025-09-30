@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from './components/ThemeProvider'
+import { AuthProvider } from '../components/AuthProvider'
+import { BottomNavigation } from '../components/BottomNavigation'
 
 export const metadata: Metadata = {
-  title: 'Base Mini App',
-  description: 'Built with Zara',
+  title: 'NodeHuntr',
+  description: 'Find, track, and maximize your DePIN node earnings in real-time',
 }
 
 export default function RootLayout({
@@ -15,9 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider defaultTheme="default">
-          {children}
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider defaultTheme="default">
+            {children}
+            <BottomNavigation />
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   )

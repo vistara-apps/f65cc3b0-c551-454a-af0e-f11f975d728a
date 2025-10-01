@@ -1,16 +1,20 @@
 'use client';
 
-import { Node } from '@/lib/types';
+import { Node, Route } from '@/lib/types';
 import { X, MapPin, DollarSign, Activity, Users, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
+import { RoutePlanner } from './RoutePlanner';
 
 interface NodeDetailsSheetProps {
   node: Node;
   onClose: () => void;
+  onRouteSelected?: (route: Route) => void;
+  allNodes?: Node[];
 }
 
-export function NodeDetailsSheet({ node, onClose }: NodeDetailsSheetProps) {
+export function NodeDetailsSheet({ node, onClose, onRouteSelected, allNodes = [] }: NodeDetailsSheetProps) {
   const [isReporting, setIsReporting] = useState(false);
+  const [showRoutePlanner, setShowRoutePlanner] = useState(false);
 
   const handleReport = async () => {
     setIsReporting(true);
@@ -21,7 +25,15 @@ export function NodeDetailsSheet({ node, onClose }: NodeDetailsSheetProps) {
   };
 
   const handlePlanRoute = () => {
-    alert('Route planning requires $0.10 micropayment. Feature coming soon!');
+    setShowRoutePlanner(true);
+  };
+
+  const handleRouteSelected = (route: Route) => {
+    if (onRouteSelected) {
+      onRouteSelected(route);
+    }
+    setShowRoutePlanner(false);
+    onClose();
   };
 
   return (
@@ -143,6 +155,15 @@ export function NodeDetailsSheet({ node, onClose }: NodeDetailsSheetProps) {
           </p>
         </div>
       </div>
+
+      {/* Route Planner */}
+      {showRoutePlanner && (
+        <RoutePlanner
+          nodes={allNodes}
+          onRouteSelected={handleRouteSelected}
+          onClose={() => setShowRoutePlanner(false)}
+        />
+      )}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { MapIcon, DollarSign, Trophy, User } from 'lucide-react';
+import { MapIcon, DollarSign, Trophy, User, QrCode } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -9,6 +9,7 @@ export function BottomNav() {
 
   const navItems = [
     { href: '/', icon: MapIcon, label: 'Map' },
+    { href: '/scan', icon: QrCode, label: 'Scan' },
     { href: '/earnings', icon: DollarSign, label: 'Earnings' },
     { href: '/leaderboard', icon: Trophy, label: 'Leaderboard' },
     { href: '/profile', icon: User, label: 'Profile' },
